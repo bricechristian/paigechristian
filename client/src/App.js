@@ -5,7 +5,7 @@ class App extends Component {
   state = {blogs: []}
 
   componentDidMount() {
-    fetch('/test')
+    fetch('/api/blog')
     .then(res => res.json())
     .then(blog => {
        this.setState({blogs: blog})
@@ -19,6 +19,7 @@ class App extends Component {
           {this.state.blogs.map(blog => (
               <div>
                 <h1>{blog.title}</h1>
+                <h3>{blog.date}</h3>
                 <p>{blog.content}</p>
               </div>
           ))
